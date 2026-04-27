@@ -19,6 +19,7 @@ from src.modules.text_generator import TextGenerator
 from src.modules.image_analyzer import ImageAnalyzer
 from src.modules.trend_researcher import TrendResearcher
 from src.modules.image_generator import ImageGenerator
+from src.modules.mindmap_renderer import MindmapRenderer
 from src.modules.prompt_builder import PromptBuilder
 from src.utils.logger import pipeline_logger
 from config.settings import config
@@ -49,6 +50,7 @@ class CheatsheetPipeline:
         self._image_analyzer = None    # Step 2
         self._trend_researcher = None  # Step 3
         self._image_generator = None   # Step 6
+        self._mindmap_renderer = None   # Mind-map image renderer
 
     @property
     def image_analyzer(self) -> ImageAnalyzer:
@@ -67,6 +69,12 @@ class CheatsheetPipeline:
         if self._image_generator is None:
             self._image_generator = ImageGenerator()
         return self._image_generator
+
+    @property
+    def mindmap_renderer(self) -> MindmapRenderer:
+        if self._mindmap_renderer is None:
+            self._mindmap_renderer = MindmapRenderer()
+        return self._mindmap_renderer
 
     # ══════════════════════════════════════════════════════════════════
     #  TEXT MODE — Full pipeline from text prompt
@@ -418,22 +426,21 @@ Requirements:
             if image_analysis:
                 result["image_analysis"] = image_analysis
 
-            # ── STEP 6: Generate Image (optional, skip if quota is low) ──
-            if generate_image:
-                await asyncio.sleep(2)
-                self._print_step(6, "Generating cheatsheet image", "Gemini Image Gen")
-                try:
-                    content_summary = self._summarize_content(content_data)
-                    img_path = await self.image_generator.generate_cheatsheet_image(
-                        title=title,
-                        content_summary=content_summary,
-                        trend_data=trend_data,
-                    )
-                    print(f"   ✅ Image generated: {img_path}")
-                    result["image_output"] = img_path
-                except Exception as e:
-                    print(f"   ⚠️ Image generation failed (non-fatal): {e}")
-                    result["image_output"] = None
+            # ── STEP 6: Render Mind-Map Image (local, no API needed) ──
+            self._print_step(6, "Rendering mind-map image", "Pillow Renderer")
+            try:
+                mindmap_path = self.mindmap_renderer.render(
+                    title=title,
+                    user_analysis=user_analysis,
+                    trend_data=trend_data,
+                    content_data=content_data,
+                    timestamp=timestamp,
+                )
+                print(f"   ✅ Mind-map image rendered: {mindmap_path}")
+                result["image_output"] = mindmap_path
+            except Exception as e:
+                print(f"   ⚠️ Mind-map render failed (non-fatal): {e}")
+                result["image_output"] = None
 
             self._print_success(result)
             return result
