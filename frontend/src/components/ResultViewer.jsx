@@ -43,61 +43,85 @@ export default function ResultViewer({ result }) {
         </div>
       </div>
 
+      {/* ── Mind-Map Image Preview (PRIMARY) ── */}
+      {image_output && (
+        <div style={{ marginBottom: 24 }}>
+          <div style={{
+            borderRadius: 16,
+            overflow: 'hidden',
+            border: '2px solid rgba(59,130,246,0.2)',
+            background: '#060a14',
+          }}>
+            <img
+              src={image_output}
+              alt={`Mind-map: ${title}`}
+              style={{
+                width: '100%',
+                height: 'auto',
+                display: 'block',
+              }}
+            />
+          </div>
+        </div>
+      )}
+
       {/* ── Download Buttons ── */}
       <div style={{ display: 'flex', gap: 10, marginBottom: 20, flexWrap: 'wrap' }}>
-        {text_output && (
+        {image_output && (
           <button
             className="btn btn-primary"
-            onClick={() => handleDownload(text_output, result.text_filename || 'cheatsheet.html')}
-            style={{ fontSize: '0.9rem' }}
+            onClick={() => handleDownload(image_output, result.image_filename || 'cheatsheet_mindmap.png')}
+            style={{
+              fontSize: '0.95rem',
+              padding: '12px 24px',
+              background: 'linear-gradient(135deg, #f43f5e, #a855f7)',
+            }}
           >
-            📥 Download Cheatsheet
+            🖼️ Download Mind-Map (PNG)
           </button>
         )}
         {text_output && (
+          <button
+            className="btn btn-secondary"
+            onClick={() => handleDownload(text_output, result.text_filename || 'cheatsheet.html')}
+            style={{ fontSize: '0.9rem' }}
+          >
+            📄 Download HTML
+          </button>
+        )}
+        {image_output && (
           <a
-            href={text_output}
+            href={image_output}
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn-secondary"
             style={{ fontSize: '0.9rem' }}
           >
-            🔗 Open in New Tab
+            🔗 Open Image Full Size
           </a>
-        )}
-        {image_output && (
-          <button
-            className="btn btn-secondary"
-            onClick={() => handleDownload(image_output, result.image_filename || 'cheatsheet.png')}
-            style={{ fontSize: '0.9rem' }}
-          >
-            🖼️ Download Image
-          </button>
         )}
       </div>
 
-      {/* ── Cheatsheet Preview ── */}
+      {/* ── HTML Cheatsheet Preview (secondary, collapsible) ── */}
       {text_output && (text_output.endsWith('.html') || text_output.includes('.html')) && (
-        <div className="result-frame">
-          <iframe
-            src={text_output}
-            title="Generated Cheatsheet"
-            sandbox="allow-same-origin"
-          />
-        </div>
-      )}
-
-      {image_output && (
-        <div style={{ marginTop: 24 }}>
-          <h3 style={{ marginBottom: 12, fontSize: '1.1rem', fontWeight: 700 }}>
-            🎨 Generated Image
-          </h3>
-          <img
-            src={image_output}
-            alt={`Cheatsheet: ${title}`}
-            className="result-image"
-          />
-        </div>
+        <details style={{ marginTop: 16 }}>
+          <summary style={{
+            cursor: 'pointer',
+            color: 'var(--text-secondary)',
+            fontSize: '0.9rem',
+            padding: '8px 0',
+            userSelect: 'none',
+          }}>
+            📋 Show HTML Cheatsheet Preview
+          </summary>
+          <div className="result-frame" style={{ marginTop: 10 }}>
+            <iframe
+              src={text_output}
+              title="Generated Cheatsheet"
+              sandbox="allow-same-origin"
+            />
+          </div>
+        </details>
       )}
 
       {/* ── Analysis Tags ── */}
