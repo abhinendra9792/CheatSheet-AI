@@ -730,6 +730,13 @@ Proprietary - All rights reserved
 ---
 
 ## 🎬 Quick Demo
+# Demo Screenshots
+
+- **All repo screenshots:**
+
+- backend/uploads/upload_20260427_225554.png
+
+![Backend Upload Screenshot](backend/uploads/upload_20260427_225554.png)
 
 ```bash
 # 1. Setup (5 minutes)
