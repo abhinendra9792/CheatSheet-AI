@@ -10,10 +10,10 @@
 
 ```
 ╔══════════════════════════════════════════════════════════════════╗
-║                  🌟 AI-POWERED CHEATSHEET GENERATION 🌟          ║
+║                  🌟 AI-POWERED CHEATSHEET GENERATION 🌟         ║
 ║                                                                  ║
 ║        Transform Topics into Professional Cheatsheets            ║
-║          Using Latest Generative AI Technologies                ║
+║          Using Latest Generative AI Technologies                 ║
 ╚══════════════════════════════════════════════════════════════════╝
 ```
 
