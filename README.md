@@ -35,6 +35,28 @@ This project demonstrates **production-grade AI pipeline orchestration**, combin
 - 🔄 **Multi-Step AI Orchestration** for complex workflows
 
 ---
+## 🎬 Quick Demo
+![Security Guide](backend/uploads/Screenshot2026-04-28002722.png)
+![Security Guide](backend/uploads/Screenshot2026-04-28002438.png)
+![Security Guide](backend/uploads/Screenshot2026-04-28002514.png)
+![Security Guide](backend/uploads/Screenshot2026-04-28140618.png)
+
+```bash
+# 1. Setup (5 minutes)
+./start.ps1
+
+# 2. Generate (1 minute)
+python backend/main.py --prompt "REST API Best Practices"
+
+# 3. View Output (instant)
+ls backend/outputs/
+# Output: cheatsheet_REST_API_Best_Practices_20250427_123456.html
+
+# 4. Open in Browser
+start backend/outputs/cheatsheet_REST_API_Best_Practices_20250427_123456.html
+```
+
+---
 
 ## 📊 AI Pipelines & Architecture
 
@@ -728,31 +750,3 @@ Proprietary - All rights reserved
 </div>
 
 ---
-
-## 🎬 Quick Demo
-# Demo Screenshots
-
-- **All repo screenshots:**
-
-- backend/uploads/upload_20260427_225554.png
-
-![Backend Upload Screenshot](backend/uploads/upload_20260427_225554.png)
-
-```bash
-# 1. Setup (5 minutes)
-./start.ps1
-
-# 2. Generate (1 minute)
-python backend/main.py --prompt "REST API Best Practices"
-
-# 3. View Output (instant)
-ls backend/outputs/
-# Output: cheatsheet_REST_API_Best_Practices_20250427_123456.html
-
-# 4. Open in Browser
-start backend/outputs/cheatsheet_REST_API_Best_Practices_20250427_123456.html
-```
-
----
-
-**🌟 If you find this project helpful, please give it a star! ⭐**
