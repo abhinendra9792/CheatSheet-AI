@@ -10,10 +10,10 @@
 
 ```
 ╔══════════════════════════════════════════════════════════════════╗
-║                  🌟 AI-POWERED CHEATSHEET GENERATION 🌟          ║
+║                  🌟 AI-POWERED CHEATSHEET GENERATION 🌟         ║
 ║                                                                  ║
 ║        Transform Topics into Professional Cheatsheets            ║
-║          Using Latest Generative AI Technologies                ║
+║          Using Latest Generative AI Technologies                 ║
 ╚══════════════════════════════════════════════════════════════════╝
 ```
 
@@ -36,7 +36,80 @@ This project demonstrates **production-grade AI pipeline orchestration**, combin
 
 ---
 
-## 📊 AI Pipelines & Architecture
+## 🎬 Demo
+
+Get a feel for the full application — from landing page to live generation — across these four screenshots.
+
+---
+
+### 📸 Demo 1 — Hero Landing Page
+
+![Hero Landing Page](backend/uploads/demo%201.png)
+
+> **What you see:** The main landing page of CheatSheet AI. It showcases the bold headline **"Transform Ideas into Learning Infographic"**, the live status badge confirming the **6-Step AI Pipeline** is powered by Gemini, and two primary CTAs — **Generate Cheatsheet** and **Explore Features**. The bottom stat bar highlights key numbers: `6 AI Steps`, `4 API Keys`, `24+ Model Fallbacks`, and `3200px Output Width` — communicating the depth of the system at a glance.
+
+---
+
+### 📸 Demo 2 — Features Section ("Why CheatSheet AI?")
+
+![Features Section](backend/uploads/demo%202.png)
+
+> **What you see:** A feature grid showcasing the **6 intelligent AI capabilities** that power every cheatsheet:
+> - 🧠 **Smart Understanding** *(NLP)* — Gemini Pro analyzes topic, subtopics, and difficulty level
+> - 🔍 **Trend Research** *(Research)* — Deep Research discovers 2025–2026 trends and visual styles
+> - 👁️ **Image Analysis** *(Vision)* — Upload any cheatsheet; AI extracts content and creates an improved version
+> - 🎨 **Mind-Map Generator** *(Visual)* — Generates 3200×2000 mind-map PNGs with curved arrows and glass cards
+> - 📄 **Dual Output** *(Export)* — Delivers both an interactive HTML cheatsheet AND a downloadable PNG
+> - ⚡ **Smart Retry Engine** *(Resilient)* — 4 API keys × 6 models = 24 fallback combinations; rate-limit proof
+
+---
+
+### 📸 Demo 3 — "How It Works" — Step-by-Step AI Pipeline
+
+![How It Works](backend/uploads/demo%203.png)
+
+> **What you see:** An interactive, numbered breakdown of the **6-Stage AI pipeline** that runs behind every generation request:
+> 1. **Understand** *(Gemini Pro)* — Analyzes topic, extracts subtopics and difficulty
+> 2. **Analyze Image** *(Nano Banana)* — Extracts structure from uploaded reference cheatsheets
+> 3. **Research Trends** *(Deep Research)* — Finds the latest trends and best practices for the topic
+> 4. **Build Prompt** *(Prompt Builder)* — Creates an optimized mega-prompt from all collected data
+> 5. **Generate Content** — LLM produces the full structured cheatsheet content
+> 6. **Synthesize Visuals** *(Imagen 4 Ultra)* — Generates a professional 3200px mind-map image
+>
+> Each step is highlighted with its model name tag and a one-line description, making the AI reasoning process fully transparent.
+
+---
+
+### 📸 Demo 4 — Generate Page (Live Cheatsheet Creator)
+
+![Generate Page](backend/uploads/demo%204.png)
+
+> **What you see:** The core **Generate Cheatsheet** page — the primary user interface for creating cheatsheets. It features:
+> - 📝 **Prompt Input** — A large text area where users describe what they need (e.g., *"Generate a Docker cheatsheet with essential commands and best practices"*)
+> - 🖼️ **Reference Image Upload** — An optional drag-and-drop zone to upload an existing cheatsheet image; the AI will analyze it and generate an improved version
+> - 📋 **Live Preview Panel** *(right side)* — Displays the generated cheatsheet result in real-time once the pipeline completes
+> - ⚡ **Generate Button** — Triggers the full 6-stage AI pipeline with a single click
+
+---
+
+```bash
+# Quick Start — get up and running in under 5 minutes
+./start.ps1                                                    # 1. Start all servers
+
+python backend/main.py --prompt "REST API Best Practices"      # 2. Generate via CLI
+
+ls backend/outputs/                                            # 3. View output files
+# → cheatsheet_REST_API_Best_Practices_20250427_123456.html
+
+start backend/outputs/cheatsheet_REST_API_Best_Practices_20250427_123456.html  # 4. Open in browser
+```
+
+---
+
+**🌟 If you find this project helpful, please give it a star! ⭐**
+
+
+### 📊 AI Pipelines & Architecture
 
 ### 🚀 **Six-Stage AI Pipeline** (The Core Innovation)
 
@@ -728,75 +801,3 @@ Proprietary - All rights reserved
 </div>
 
 ---
-
-## 🎬 Demo Screenshots
-
-Get a feel for the full application — from landing page to live generation — across these four screenshots.
-
----
-
-### 📸 Demo 1 — Hero Landing Page
-
-![Hero Landing Page](backend/uploads/demo%201.png)
-
-> **What you see:** The main landing page of CheatSheet AI. It showcases the bold headline **"Transform Ideas into Learning Infographic"**, the live status badge confirming the **6-Step AI Pipeline** is powered by Gemini, and two primary CTAs — **Generate Cheatsheet** and **Explore Features**. The bottom stat bar highlights key numbers: `6 AI Steps`, `4 API Keys`, `24+ Model Fallbacks`, and `3200px Output Width` — communicating the depth of the system at a glance.
-
----
-
-### 📸 Demo 2 — Features Section ("Why CheatSheet AI?")
-
-![Features Section](backend/uploads/demo%202.png)
-
-> **What you see:** A feature grid showcasing the **6 intelligent AI capabilities** that power every cheatsheet:
-> - 🧠 **Smart Understanding** *(NLP)* — Gemini Pro analyzes topic, subtopics, and difficulty level
-> - 🔍 **Trend Research** *(Research)* — Deep Research discovers 2025–2026 trends and visual styles
-> - 👁️ **Image Analysis** *(Vision)* — Upload any cheatsheet; AI extracts content and creates an improved version
-> - 🎨 **Mind-Map Generator** *(Visual)* — Generates 3200×2000 mind-map PNGs with curved arrows and glass cards
-> - 📄 **Dual Output** *(Export)* — Delivers both an interactive HTML cheatsheet AND a downloadable PNG
-> - ⚡ **Smart Retry Engine** *(Resilient)* — 4 API keys × 6 models = 24 fallback combinations; rate-limit proof
-
----
-
-### 📸 Demo 3 — "How It Works" — Step-by-Step AI Pipeline
-
-![How It Works](backend/uploads/demo%203.png)
-
-> **What you see:** An interactive, numbered breakdown of the **6-Stage AI pipeline** that runs behind every generation request:
-> 1. **Understand** *(Gemini Pro)* — Analyzes topic, extracts subtopics and difficulty
-> 2. **Analyze Image** *(Nano Banana)* — Extracts structure from uploaded reference cheatsheets
-> 3. **Research Trends** *(Deep Research)* — Finds the latest trends and best practices for the topic
-> 4. **Build Prompt** *(Prompt Builder)* — Creates an optimized mega-prompt from all collected data
-> 5. **Generate Content** — LLM produces the full structured cheatsheet content
-> 6. **Synthesize Visuals** *(Imagen 4 Ultra)* — Generates a professional 3200px mind-map image
->
-> Each step is highlighted with its model name tag and a one-line description, making the AI reasoning process fully transparent.
-
----
-
-### 📸 Demo 4 — Generate Page (Live Cheatsheet Creator)
-
-![Generate Page](backend/uploads/demo%204.png)
-
-> **What you see:** The core **Generate Cheatsheet** page — the primary user interface for creating cheatsheets. It features:
-> - 📝 **Prompt Input** — A large text area where users describe what they need (e.g., *"Generate a Docker cheatsheet with essential commands and best practices"*)
-> - 🖼️ **Reference Image Upload** — An optional drag-and-drop zone to upload an existing cheatsheet image; the AI will analyze it and generate an improved version
-> - 📋 **Live Preview Panel** *(right side)* — Displays the generated cheatsheet result in real-time once the pipeline completes
-> - ⚡ **Generate Button** — Triggers the full 6-stage AI pipeline with a single click
-
----
-
-```bash
-# Quick Start — get up and running in under 5 minutes
-./start.ps1                                                    # 1. Start all servers
-
-python backend/main.py --prompt "REST API Best Practices"      # 2. Generate via CLI
-
-ls backend/outputs/                                            # 3. View output files
-# → cheatsheet_REST_API_Best_Practices_20250427_123456.html
-
-start backend/outputs/cheatsheet_REST_API_Best_Practices_20250427_123456.html  # 4. Open in browser
-```
-
----
-
-**🌟 If you find this project helpful, please give it a star! ⭐**
